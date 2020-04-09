@@ -3,12 +3,16 @@ package com.coderscampus.Assignment2;
 //POJO User Class
 
 public class User {
-
 	private String username;
 	private String password;
 	private String name;
 	
-
+	public User (String[] values) {
+		this.username = values[0];
+		this.password = values[1];
+		this.name = values[2];
+	}
+	
 	public String getUsername() {
 		return username;
 	}
@@ -33,7 +37,13 @@ public class User {
 		this.name = name;
 	}
 
-	
+	@Override
+
+	public String toString() {
+
+		return "User [username=" + username + ", password=" + password + ", name=" + name + "]";
+
+	}
 	
 	
 }
