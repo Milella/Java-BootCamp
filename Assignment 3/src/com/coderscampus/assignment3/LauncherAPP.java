@@ -20,7 +20,7 @@ public class LauncherAPP {
 		userLogin.authenticate();
 		
 		CoreAPP coreapp = new CoreAPP();
-		coreapp.mainMenu(DataLoad.user);
+		//coreapp.mainMenu(DataLoad.user);
 				
 		
 	}

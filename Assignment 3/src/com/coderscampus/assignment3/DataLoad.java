@@ -16,7 +16,7 @@ public class DataLoad {
 		int i = 0;
 		BufferedReader fileReader;
 
-		fileReader = new BufferedReader(new FileReader("data.txt"));
+		fileReader = new BufferedReader(new FileReader("users.txt"));
 
 		while ((line = fileReader.readLine()) != null) {
 			users[i] = new User(line.split(", "));
