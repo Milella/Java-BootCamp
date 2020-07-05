@@ -6,22 +6,28 @@ import java.io.IOException;
 
 public class LauncherAPP {
 
-	
-	//public static Scanner scanner = null;
 		
-	
 	public static void main(String[] args) throws FileNotFoundException, IOException {
-		
-		//LauncherAPP launcherapp = new LauncherAPP();
-		DataLoad dataLoad = new DataLoad();
-		dataLoad.loadData();
-		
-		UserLogin userLogin = new UserLogin();
-		userLogin.authenticate();
-		
-		CoreAPP coreapp = new CoreAPP();
-		//coreapp.mainMenu(DataLoad.user);
 				
+		LauncherAPP launcherapp = new LauncherAPP();
+		User user = null; 
+		DataLoad dataLoad = new DataLoad();
+		UserLogin userLogin = new UserLogin();
+		CoreAPP coreapp = new CoreAPP();
+				
+		dataLoad.loadData();
+		//System.out.println("------------------");
+		//System.out.println(user);
+		//System.out.println("------------------");
+		
+		userLogin.authenticate(user);
+		
+		System.out.println("--- User returned from userLogin Class ---");
+		System.out.println(user);
+		System.out.println("------------------------------------------");
+		
+		CoreAPP.mainMenu(user);
+		
 		
 	}
 

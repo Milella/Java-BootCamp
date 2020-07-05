@@ -22,9 +22,11 @@ public class DataLoad {
 			users[i] = new User(line.split(", "));
 			i++;
 		}
-		for (User user: users) {
-			System.out.println(user);
+		for (User arrayusers: users) {
+			System.out.println(arrayusers);
 		}
+		
+		
 		
 		fileReader.close();
 	

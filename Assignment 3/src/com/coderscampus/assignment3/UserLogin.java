@@ -11,7 +11,7 @@ public class UserLogin {
 	String line;
 	int i = 0;
 		
-	public User authenticate() throws FileNotFoundException   {
+	public User authenticate(User user) throws FileNotFoundException   {
 			
 				
 		Scanner scanner = new Scanner(System.in);
@@ -27,15 +27,24 @@ public class UserLogin {
 			System.out.println("Enter your Password: ");
 			password = scanner.nextLine();
 
-			for (User user : DataLoad.users) {
+			for (User authuser : DataLoad.users) {
 
-				if (user.getUsername().equalsIgnoreCase(username) && user.getPassword().equals(password)) {
+				if (authuser.getUsername().equalsIgnoreCase(username) && authuser.getPassword().equals(password)) {
 					userIsAuthenticated = true;
-					System.out.println("Welcome " + user.getName());
+					System.out.println("Welcome " + authuser.getName());
 					System.out.println("");
-					System.out.println("You are a :" + user.getRole());
+					System.out.println("You are a :" + authuser.getRole());
 					//scl();
+					
+					user=authuser;						
+					System.out.println(user);
+					System.out.println("----------------");
+					System.out.println(user);
+						
+					
 					return user;
+					
+					
 				}
 			}
 

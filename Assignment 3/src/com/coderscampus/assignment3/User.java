@@ -11,6 +11,13 @@ public class User {
 		System.out.println("A No argument constructor has created a user");
 	}
 	
+	public User (String username, String password, String name, String role) {
+		this.username=username;
+		this.password=password;
+		this.name=name;
+		this.role=role;
+	}
+	
 	public User (String[] credentials) {
 		this.username = credentials[0];
 		this.password = credentials[1];
@@ -50,6 +57,7 @@ public class User {
 		this.role = role;
 	}
 
+		
 	@Override
 	public String toString() {
 		return "User [username=" + username + ", password=" + password + ", name=" + name + ", role=" + role + "]";
