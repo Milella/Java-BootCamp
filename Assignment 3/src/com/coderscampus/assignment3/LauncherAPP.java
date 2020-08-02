@@ -9,25 +9,17 @@ public class LauncherAPP {
 		
 	public static void main(String[] args) throws FileNotFoundException, IOException {
 				
-		LauncherAPP launcherapp = new LauncherAPP();
-		User user = null; 
-		DataLoad dataLoad = new DataLoad();
+		User user = null;
+		
 		UserLogin userLogin = new UserLogin();
-		CoreAPP coreapp = new CoreAPP();
+						
+		DataService.loadData();
 				
-		dataLoad.loadData();
-		//System.out.println("------------------");
-		//System.out.println(user);
-		//System.out.println("------------------");
-		
-		userLogin.authenticate(user);
-		
-		System.out.println("--- User returned from userLogin Class ---");
-		System.out.println(user);
-		System.out.println("------------------------------------------");
-		
+		user = userLogin.authenticate();
+						
 		CoreAPP.mainMenu(user);
 		
+		System.exit(0);
 		
 	}
 
