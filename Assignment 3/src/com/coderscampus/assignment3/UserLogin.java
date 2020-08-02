@@ -1,48 +1,50 @@
 package com.coderscampus.assignment3;
 
+
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class UserLogin {
-
-	public static Scanner scanner = new Scanner(System.in);
-	public static Boolean userIsAuthenticated = false;
-	public static Boolean superUserLoggedIn = false;
+	
+	public static Scanner scanner = null;
+	public static boolean userIsAuthenticated = false;
 	String line;
-	Integer i = 0;
-
-	public User authenticate() {
+	int i = 0;
 		
-		Integer atlogins = 0;
+	public User authenticate(User user) throws FileNotFoundException   {
+			
+				
+		Scanner scanner = new Scanner(System.in);
+		int atlogins = 0;
 		String username = null;
 		String password = null;
 
 		while (atlogins < 5) {
 
-			System.out.println("Please Enter in your Username and Password to Login to the SYSTEM: \n");
-
-			System.out.println("Enter your Username: ");
+			System.out.println("Enter your email: ");
 			username = scanner.nextLine();
 
 			System.out.println("Enter your Password: ");
 			password = scanner.nextLine();
 
-			for (User user : DataService.users) {
+			for (User authuser : DataLoad.users) {
 
-				if (user.getUsername().equalsIgnoreCase(username) && user.getPassword().equals(password)) {
+				if (authuser.getUsername().equalsIgnoreCase(username) && authuser.getPassword().equals(password)) {
 					userIsAuthenticated = true;
+					System.out.println("Welcome " + authuser.getName());
 					System.out.println("");
-					System.out.println("Welcome " + user.getName());
-					System.out.println("");
-					System.out.println("You are a :" + user.getRole());
-
-					if (user.getRole().equals("super_user")) {
-						superUserLoggedIn = true;
-					}
-
+					System.out.println("You are a :" + authuser.getRole());
+					//scl();
+					
+					user=authuser;						
+					System.out.println(user);
 					System.out.println("----------------");
-
+					System.out.println(user);
+						
+					
 					return user;
-
+					
+					
 				}
 			}
 
@@ -53,22 +55,18 @@ public class UserLogin {
 
 		System.out.println("Too many failed login attempts, you are now locked out.");
 		System.out.println("");
-		scannerClose();
-		System.exit(0);
 		return null;
-
+		
 	}
 
-	private static void scannerClose() {
-		
+	public static void scl() {
+		//scl stands for ScannerCLose, 
 		try {
 
 		} finally {
 			if (scanner != null)
 				scanner.close();
 		}
-	return;	
-	
 	}
 
-}
+}	
